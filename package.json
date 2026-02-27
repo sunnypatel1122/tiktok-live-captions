@@ -1,0 +1,75 @@
+{
+    "name": "@tiktool/captions",
+    "version": "1.0.0",
+    "description": "TikTok Live Captions — Real-Time Speech-to-Text Transcription & Multi-Language Translation for TikTok LIVE Streams",
+    "author": "tiktool",
+    "license": "MIT",
+    "keywords": [
+        "tiktok",
+        "tiktok-live",
+        "captions",
+        "transcription",
+        "translation",
+        "speech-to-text",
+        "stt",
+        "ai-captions",
+        "tiktok-captions",
+        "tiktok-transcription",
+        "live-captions",
+        "real-time-transcription",
+        "tiktok-live-captions",
+        "tiktok-stt",
+        "multilingual-transcription",
+        "live-streaming-captions",
+        "ai-transcription",
+        "diarization",
+        "tiktok-live-api",
+        "tiktok-audio",
+        "subtitle",
+        "closed-captions",
+        "accessibility",
+        "webcast"
+    ],
+    "homepage": "https://tik.tools/docs#captions",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tiktool/captions.git"
+    },
+    "bugs": {
+        "url": "https://github.com/tiktool/captions/issues"
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.mts",
+                "default": "./dist/index.mjs"
+            },
+            "require": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            }
+        }
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "prepublishOnly": "npm run build"
+    },
+    "dependencies": {
+        "@tiktool/live": "^2.6.2"
+    },
+    "devDependencies": {
+        "tsup": "^8.3.0",
+        "typescript": "^5.7.0"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}
